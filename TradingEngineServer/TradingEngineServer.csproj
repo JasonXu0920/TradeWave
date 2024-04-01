@@ -5,8 +5,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>9</LangVersion>
-    <RootNameSpace>TradingEngineServer.Core</RootNameSpace>
+    <RootNamespace>TradingEngineServer.Core</RootNamespace>
+    <AssemblyName>TradingEngineServer.Core</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

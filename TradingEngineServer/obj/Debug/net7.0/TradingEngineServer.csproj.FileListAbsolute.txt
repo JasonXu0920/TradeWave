@@ -1,0 +1,6 @@
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.csproj.AssemblyReference.cache
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.AssemblyInfoInputs.cache
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.AssemblyInfo.cs
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.csproj.CoreCompileInputs.cache
+D:\practice_projects\TradeWave\TradingEngineServer\obj\Debug\net7.0\TradingEngineServer.sourcelink.json

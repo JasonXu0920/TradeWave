@@ -1490,7 +1490,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "D:\\practice_projects\\TradeWave\\TradingEngineServer\\TradingEngineServer.csproj",
-      "projectName": "TradingEngineServer",
+      "projectName": "TradingEngineServer.Core",
       "projectPath": "D:\\practice_projects\\TradeWave\\TradingEngineServer\\TradingEngineServer.csproj",
       "packagesPath": "C:\\Users\\xxg20\\.nuget\\packages\\",
       "outputPath": "D:\\practice_projects\\TradeWave\\TradingEngineServer\\obj\\",
