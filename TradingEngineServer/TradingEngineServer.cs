@@ -11,7 +11,7 @@ using TradingEngineServer.Core.TradingEngineServerConfig;
 
 namespace TradingEngineServer.Core
 {
-    class TradingEngineServer : BackgroundService, ITradingEngineServer
+    sealed class TradingEngineServer : BackgroundService, ITradingEngineServer
     {   
         private readonly ILogger<TradingEngineServer> _logger;
         private readonly TradingEngineServerConfiguration _tradingEngineServerConfig;
