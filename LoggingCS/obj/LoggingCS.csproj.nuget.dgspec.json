@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "D:\\practice_projects\\TradeWave\\LoggingCS\\LoggingCS.csproj",
-        "projectName": "LoggingCS",
+        "projectName": "TradingEngineServer.Logging",
         "projectPath": "D:\\practice_projects\\TradeWave\\LoggingCS\\LoggingCS.csproj",
         "packagesPath": "C:\\Users\\xxg20\\.nuget\\packages\\",
         "outputPath": "D:\\practice_projects\\TradeWave\\LoggingCS\\obj\\",
@@ -39,6 +39,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,6 +63,10 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.15, 7.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
               "version": "[7.0.15, 7.0.15]"
             },
             {
