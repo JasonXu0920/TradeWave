@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TradingEngineServer.Core.TradingEngineServerConfig;
+using TradingEngineServer.Logging;
 
 namespace TradingEngineServer.Core
 {
@@ -19,6 +20,7 @@ namespace TradingEngineServer.Core
 
                 // Add singleton objects
                 services.AddSingleton<ITradingEngineServer, TradingEngineServer>();
+                services.AddSingleton<ITextLogger, >();
 
                 // Add host service 
                 services.AddHostedService<TradingEngineServer>();
