@@ -20,7 +20,7 @@ namespace TradingEngineServer.Core
 
                 // Add singleton objects
                 services.AddSingleton<ITradingEngineServer, TradingEngineServer>();
-                services.AddSingleton<ITextLogger, >();
+                services.AddSingleton<ITextLogger, TextLogger>();
 
                 // Add host service 
                 services.AddHostedService<TradingEngineServer>();
