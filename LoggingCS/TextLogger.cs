@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 using Microsoft.Extensions.Options;
 using TradingEngineServer.Logging.LoggingConfiguration;
 
@@ -15,14 +16,41 @@ namespace TradingEngineServer.Logging
             _loggingConfiguration = loggingConfiguration.Value ?? throw new ArgumentException(nameof(loggingConfiguration));
         }
 
-        protected override void Log(LogLevel logLevel, string module, string message)
+        private static async Task LogAsync(string filepath, BufferBlock<LogInformation> logQueue, CancellationToken token)
+        {
+            using var fs = new FileStream(filepath, FileMode.CreateNew, FileAccess.Write, FileShare.Read);
+            using var sw = new StreamWriter(fs);
+            try
+            {
+                while(true)
+                {
+                    var logItem = await logQueue.ReceiveAsync(token).ConfigureAwait(false);
+                    string formattedMessage = FormatLogItem(logItem);
+                    await sw.WriteLineAsync(formattedMessage);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
+        }
+
+        private static string FormatLogItem(LogInformation logItem)
         {
             throw new NotImplementedException();
+        }
+
+        protected override void Log(LogLevel logLevel, string module, string message)
+        {
+            _logQueue.Post(new LogInformation(logLevel, module, message, DateTime.Now, Thread.CurrentThread.ManagedThreadId, Thread.CurrentThread.Name));
         }
 
         public void Dispose()
         {
             throw new NotImplementedException();
         }
+
+
+        private readonly BufferBlock<LogInformation> _logQueue = new BufferBlock<LogInformation>();
     }
 }
