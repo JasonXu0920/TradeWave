@@ -37,7 +37,8 @@ namespace TradingEngineServer.Logging
 
         private static string FormatLogItem(LogInformation logItem)
         {
-            throw new NotImplementedException();
+            return $"[{logItem.Now:yyyy-MM-dd HH-mm-ss.ffffff}] [{logItem.ThreadName,-30}:{logItem.ThreadId:000}] " +
+                    $"[{logItem.LogLevel}] {logItem.Message}";
         }
 
         protected override void Log(LogLevel logLevel, string module, string message)
