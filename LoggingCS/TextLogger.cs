@@ -14,6 +14,8 @@ namespace TradingEngineServer.Logging
         public TextLogger(IOptions<LoggerConfiguration> loggingConfiguration) : base()
         {
             _loggingConfiguration = loggingConfiguration.Value ?? throw new ArgumentException(nameof(loggingConfiguration));
+            string filepath = string.Empty;
+            _ = Task.Run(() => LogAsync(filepath, _logQueue, _tokenSource.Token));
         }
 
         private static async Task LogAsync(string filepath, BufferBlock<LogInformation> logQueue, CancellationToken token)
@@ -53,5 +55,6 @@ namespace TradingEngineServer.Logging
 
 
         private readonly BufferBlock<LogInformation> _logQueue = new BufferBlock<LogInformation>();
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
     }
 }
