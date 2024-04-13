@@ -14,7 +14,15 @@ namespace TradingEngineServer.Logging
         public TextLogger(IOptions<LoggerConfiguration> loggingConfiguration) : base()
         {
             _loggingConfiguration = loggingConfiguration.Value ?? throw new ArgumentException(nameof(loggingConfiguration));
-            string filepath = string.Empty;
+            if(_loggingConfiguration.LoggerType != LoggerType.Text)
+            {
+                throw new InvalidOperationException($"{nameof(TextLogger)} doesn't match LoggerType of {_loggingConfiguration.LoggerType}");
+            }
+            
+            var now = DateTime.Now;
+            string logDirectory = Path.Combine(_loggingConfiguration.TextLoggerConfiguration.Directory, $"{now:yyyy-MM-dd}");
+            string baseLogName = Path.Combine(_loggingConfiguration.TextLoggerConfiguration.Filename, _loggingConfiguration.TextLoggerConfiguration.FileExtension);
+            string filepath = Path.Combine(logDirectory, baseLogName);
             _ = Task.Run(() => LogAsync(filepath, _logQueue, _tokenSource.Token));
         }
 
