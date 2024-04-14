@@ -14,11 +14,11 @@ namespace TradingEngineServer.Logging
         public TextLogger(IOptions<LoggerConfiguration> loggingConfiguration) : base()
         {
             _loggingConfiguration = loggingConfiguration.Value ?? throw new ArgumentException(nameof(loggingConfiguration));
-            if(_loggingConfiguration.LoggerType != LoggerType.Text)
+            if (_loggingConfiguration.LoggerType != LoggerType.Text)
             {
                 throw new InvalidOperationException($"{nameof(TextLogger)} doesn't match LoggerType of {_loggingConfiguration.LoggerType}");
             }
-            
+
             var now = DateTime.Now;
             string logDirectory = Path.Combine(_loggingConfiguration.TextLoggerConfiguration.Directory, $"{now:yyyy-MM-dd}");
             string baseLogName = Path.Combine(_loggingConfiguration.TextLoggerConfiguration.Filename, _loggingConfiguration.TextLoggerConfiguration.FileExtension);
@@ -32,7 +32,7 @@ namespace TradingEngineServer.Logging
             using var sw = new StreamWriter(fs);
             try
             {
-                while(true)
+                while (true)
                 {
                     var logItem = await logQueue.ReceiveAsync(token).ConfigureAwait(false);
                     string formattedMessage = FormatLogItem(logItem);
@@ -56,13 +56,40 @@ namespace TradingEngineServer.Logging
             _logQueue.Post(new LogInformation(logLevel, module, message, DateTime.Now, Thread.CurrentThread.ManagedThreadId, Thread.CurrentThread.Name));
         }
 
+        ~TextLogger()
+        {
+            Dispose(false);
+        }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            lock (_lock)
+            {
+                if (_disposed)
+                    return;
+
+                _disposed = true;
+            }
+
+
+            if (disposing)
+            {
+                _tokenSource.Cancel();
+                _tokenSource.Dispose();
+            }
+
+            // get rid of unmanaged resources
         }
 
 
         private readonly BufferBlock<LogInformation> _logQueue = new BufferBlock<LogInformation>();
         private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
+        private readonly object _lock = new object();
+        private bool _disposed = false;
     }
 }
