@@ -1,0 +1,6 @@
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.csproj.AssemblyReference.cache
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.GeneratedMSBuildEditorConfig.editorconfig
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.AssemblyInfoInputs.cache
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.AssemblyInfo.cs
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.csproj.CoreCompileInputs.cache
+D:\practice_projects\TradeWave\LoggingCS\obj\Debug\net7.0\LoggingCS.sourcelink.json
