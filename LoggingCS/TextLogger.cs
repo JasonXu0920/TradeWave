@@ -22,7 +22,7 @@ namespace TradingEngineServer.Logging
             var now = DateTime.Now;
             string logDirectory = Path.Combine(_loggingConfiguration.TextLoggerConfiguration.Directory, $"{now:yyyy-MM-dd}");  
             string uniqueLogName = $"{_loggingConfiguration.TextLoggerConfiguration.Filename}-{now:HH_mm_ss}";
-            string baseLogName = Path.Combine(uniqueLogName, _loggingConfiguration.TextLoggerConfiguration.FileExtension);
+            string baseLogName = Path.ChangeExtension(uniqueLogName, _loggingConfiguration.TextLoggerConfiguration.FileExtension);
             string filepath = Path.Combine(logDirectory, baseLogName);
 
             Directory.CreateDirectory(logDirectory);
@@ -32,7 +32,7 @@ namespace TradingEngineServer.Logging
         private static async Task LogAsync(string filepath, BufferBlock<LogInformation> logQueue, CancellationToken token)
         {
             using var fs = new FileStream(filepath, FileMode.CreateNew, FileAccess.Write, FileShare.Read);
-            using var sw = new StreamWriter(fs);
+            using var sw = new StreamWriter(fs) {AutoFlush = true, };
             try
             {
                 while (true)

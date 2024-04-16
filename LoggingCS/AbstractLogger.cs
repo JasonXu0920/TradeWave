@@ -13,15 +13,17 @@ namespace TradingEngineServer.Logging
             
         }
 
-        void Debug(string module, string message) => Log(LogLevel.Debug, module, message);
-        void Debug(string module, Exception exception) => Log(LogLevel.Debug, module, $"(exception)");
-        void Information(string module, string message) => Log(LogLevel.Information, module, message);
-        void Information(string module, Exception exception) => Log(LogLevel.Information, module, $"(exception)");
-        void Warning(string module, string message) => Log(LogLevel.Warning, module, message);
-        void Warning(string module, Exception exception) => Log(LogLevel.Warning, module, $"(exception)");
-        void Error(string module, string message) => Log(LogLevel.Error, module, message);
-        void Error(string module, Exception exception) => Log(LogLevel.Error, module, $"(exception)");
+        void ILogger.Debug(string module, string message) => Log(LogLevel.Debug, module, message);
+        void ILogger.Debug(string module, Exception exception) => Log(LogLevel.Debug, module, $"(exception)");
+        void ILogger.Information(string module, string message) => Log(LogLevel.Information, module, message);
+        void ILogger.Information(string module, Exception exception) => Log(LogLevel.Information, module, $"(exception)");
+        void ILogger.Warning(string module, string message) => Log(LogLevel.Warning, module, message);
+        void ILogger.Warning(string module, Exception exception) => Log(LogLevel.Warning, module, $"(exception)");
+        void ILogger.Error(string module, string message) => Log(LogLevel.Error, module, message);
+        void ILogger.Error(string module, Exception exception) => Log(LogLevel.Error, module, $"(exception)");
 
         protected abstract void Log(LogLevel logLevel, string module, string message);
+
+        
     }
 }
