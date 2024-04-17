@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Iari4UUKspCkFKpuxAoZZ/t9JjvmxGZKMA8JiqW6NfvbeP9Z98OoMUX7VEAYRu7utWwgnZhmbXgFiUwd/hOBvA==",
+  "success": true,
+  "projectFilePath": "D:\\practice_projects\\TradeWave\\InstrumentCS\\InstrumentCS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.15\\microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.15\\microsoft.windowsdesktop.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.15\\microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.15\\microsoft.netcore.app.host.win-x64.7.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

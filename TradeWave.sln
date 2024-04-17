@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradingEngineServer", "Trad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingCS", "LoggingCS\LoggingCS.csproj", "{513C57BB-8240-49B0-9085-7711DF4197FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstrumentCS", "InstrumentCS\InstrumentCS.csproj", "{98F2CE3C-524E-4067-8823-4DF8AC54E3D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{513C57BB-8240-49B0-9085-7711DF4197FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{513C57BB-8240-49B0-9085-7711DF4197FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{513C57BB-8240-49B0-9085-7711DF4197FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F2CE3C-524E-4067-8823-4DF8AC54E3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F2CE3C-524E-4067-8823-4DF8AC54E3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F2CE3C-524E-4067-8823-4DF8AC54E3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F2CE3C-524E-4067-8823-4DF8AC54E3D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
