@@ -602,6 +602,16 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+      "TradingEngineServer.Instrument/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        }
+      },
       "TradingEngineServer.Logging/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1490,6 +1500,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "TradingEngineServer.Instrument/1.0.0": {
+      "type": "project",
+      "path": "../InstrumentCS/InstrumentCS.csproj",
+      "msbuildProject": "../InstrumentCS/InstrumentCS.csproj"
+    },
     "TradingEngineServer.Logging/1.0.0": {
       "type": "project",
       "path": "../LoggingCS/LoggingCS.csproj",
@@ -1500,6 +1515,7 @@
     "net7.0": [
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
       "Microsoft.Extensions.Hosting >= 7.0.0",
+      "TradingEngineServer.Instrument >= 1.0.0",
       "TradingEngineServer.Logging >= 1.0.0"
     ]
   },
@@ -1530,6 +1546,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "D:\\practice_projects\\TradeWave\\InstrumentCS\\InstrumentCS.csproj": {
+              "projectPath": "D:\\practice_projects\\TradeWave\\InstrumentCS\\InstrumentCS.csproj"
+            },
             "D:\\practice_projects\\TradeWave\\LoggingCS\\LoggingCS.csproj": {
               "projectPath": "D:\\practice_projects\\TradeWave\\LoggingCS\\LoggingCS.csproj"
             }
