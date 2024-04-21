@@ -16,6 +16,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TradingEngineServer\TradingEngineServer.csproj" />
-    <ProjectReference Include="..\InstrumentCS\InstrumentCS.csproj" />
   </ItemGroup>
 </Project>
