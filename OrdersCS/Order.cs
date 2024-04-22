@@ -19,6 +19,12 @@ namespace TradingEngineServer.Orders
             _orderCore = orderCore;
         }
 
+        public Order(ModifyOrder modifyOrder) : this(modifyOrder, modifyOrder.Price, modifyOrder.Quantity, modifyOrder.IsBuySide)
+        {
+
+        }
+
+
         public long Price { get; private set; }
         public uint InitialQuantity { get; private set; }
         public uint CurrentQuantity { get; private set; }
