@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Orders
 {
-    class Limit
-    {
-
-    }
+    
     public class OrderBookEntry
     {
         public OrderBookEntry(Order currentOrder, Limit parentLimit)
