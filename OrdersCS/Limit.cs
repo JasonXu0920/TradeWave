@@ -33,6 +33,24 @@ namespace TradingEngineServer.Orders
             }
             return orderQuantity;
         }
+
+        public List<OrderRecord> GetLevelOrderRecords()
+        {
+            List<OrderRecords> orderRecords = new List<OrderRecords>();
+            OrderBookEntry headPointer = Head;
+            uint theoreticalQueuePosition = 0;
+            while (headPointer != null)
+            {
+                var CurrentOrder = headPointer.CurrentOrder;
+                if(CurrentOrder.CurrentQuantity != 0)
+                {
+                    orderRecords.Add(new OrderRecord(CurrentOrder.OrderId, CurrentOrder.CurrentQuantity, Price, CurrentOrder.IsBuySide, CurrentOrder.Username, CurrentOrder.SecurityId, theoreticalQueuePosition));
+                    theoreticalQueuePosition++;
+                    headPointer = headPointer.Next;
+                }
+            }
+            return orderRecords;
+        }
         public bool IsEmpty
         {
             get
