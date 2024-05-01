@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "u9epy/nDqBHGlOl1kZUDT6yDWvclDHE60xjej51hwrqI5K/fb98AnE5OJRF05DkrwlV6nH1EHfQWJ1CR+9J6Ew==",
+  "success": true,
+  "projectFilePath": "D:\\practice_projects\\TradeWave\\OrdersCS\\OrdersCS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.15\\microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.15\\microsoft.windowsdesktop.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.15\\microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\xxg20\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.15\\microsoft.netcore.app.host.win-x64.7.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

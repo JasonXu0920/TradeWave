@@ -14,7 +14,4 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TradingEngineServer\TradingEngineServer.csproj" />
-  </ItemGroup>
 </Project>
