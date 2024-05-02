@@ -6,7 +6,7 @@ using TradingEngineServer.Orders;
 
 namespace TradingEngineServer.Orderbook
 {
-    interface IOrderEntryOrderbook : IReadOnlyOrderbook
+    public interface IOrderEntryOrderbook : IReadOnlyOrderbook
     {
         void AddOrder(Order order);
         void ChangeOrder(ModifyOrder modifyOrder);
