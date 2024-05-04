@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "TradingEngineServer.Instrument/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "TradingEngineServer.Instrument/1.0.0": {
+      "type": "project",
+      "path": "../InstrumentCS/InstrumentCS.csproj",
+      "msbuildProject": "../InstrumentCS/InstrumentCS.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "TradingEngineServer.Instrument >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\xxg20\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\practice_projects\\TradeWave\\InstrumentCS\\InstrumentCS.csproj": {
+              "projectPath": "D:\\practice_projects\\TradeWave\\InstrumentCS\\InstrumentCS.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

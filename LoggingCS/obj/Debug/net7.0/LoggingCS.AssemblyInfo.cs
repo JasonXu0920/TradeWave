@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradingEngineServer.Logging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ba3f4341af4bb8b1ff3eb3af91a65cdca197188")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+832e66b8e225f21e4d47f66d3c8c3d8a2ba4f61e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradingEngineServer.Logging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradingEngineServer.Logging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

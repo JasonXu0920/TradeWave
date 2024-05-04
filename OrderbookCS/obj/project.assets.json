@@ -2,9 +2,22 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "TradingEngineServer.Instrument/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TradingEngineServer.Instrument.dll": {}
+        }
+      },
       "TradingEngineServer.Orders/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "TradingEngineServer.Instrument": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/TradingEngineServer.Orders.dll": {}
         },
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "TradingEngineServer.Instrument/1.0.0": {
+      "type": "project",
+      "path": "../InstrumentCS/InstrumentCS.csproj",
+      "msbuildProject": "../InstrumentCS/InstrumentCS.csproj"
+    },
     "TradingEngineServer.Orders/1.0.0": {
       "type": "project",
       "path": "../OrdersCS/OrdersCS.csproj",
