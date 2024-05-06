@@ -12,11 +12,15 @@ namespace TradingEngineServer.Orderbook
     {
         // PRIVATE FIELDS//
         private readonly Security _instrument;
+        private readonly Dictionary<long, OrderBookEntry> _orders = new Dictionary<long, OrderBookEntry>();
+        private readonly SortedSet<Limit> _askLimits = new SortedSet<Limit>(AskLimitComparer.Comparer);
+        private readonly SortedSet<Limit> _bidLimits = new SortedSet<Limit>(BidLimitComparer.Comparer);  
+
         public Orderbook(Security instrument)
         {
             _instrument = instrument;
         }
-        public int Count => throw new NotImplementedException();
+        public int Count => _orders.Count;
 
         public void AddOrder(Order order)
         {
@@ -30,7 +34,7 @@ namespace TradingEngineServer.Orderbook
 
         public bool ContainsOrder(long orderId)
         {
-            throw new NotImplementedException();
+            return _orders.ContainsKey(orderId);
         }
 
         public List<OrderBookEntry> GetAskOrders()
