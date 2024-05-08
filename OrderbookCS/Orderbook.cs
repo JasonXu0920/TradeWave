@@ -73,17 +73,60 @@ namespace TradingEngineServer.Orderbook
 
         public List<OrderBookEntry> GetAskOrders()
         {
-            throw new NotImplementedException();
+            List<OrderBookEntry> orderbookEntries = new List<OrderBookEntry>();
+            foreach (var askLimit in _askLimits)
+            {
+                if (askLimit.IsEmpty)
+                { continue;}
+                else
+                {
+                    OrderBookEntry askLimitPointer = askLimit.Head;
+                    while (askLimitPointer != null)
+                    {
+                        orderbookEntries.Add(askLimitPointer);
+                        askLimitPointer = askLimitPointer.Next;
+                    }
+                }
+                
+            }
+            return orderbookEntries;
         }
 
         public List<OrderBookEntry> GetBidOrders()
         {
-            throw new NotImplementedException();
+            List<OrderBookEntry> orderbookEntries = new List<OrderBookEntry>();
+            foreach (var bidLimit in _bidLimits)
+            {
+                if (bidLimit.IsEmpty)
+                { continue;}
+                else
+                {
+                    OrderBookEntry bidLimitPointer = bidLimit.Head;
+                    while (bidLimitPointer != null)
+                    {
+                        orderbookEntries.Add(bidLimitPointer);
+                        bidLimitPointer = bidLimitPointer.Next;
+                    }
+                }
+                
+            }
+            return orderbookEntries;
         }
 
         public OrderbookSpread GetSpread()
         {
-            throw new NotImplementedException();
+            long? bestAsk = null, bestBid = null;
+            if (_askLimits.Any() && !_askLimits.Min.IsEmpty)
+            {
+                bestAsk = _askLimits.Min.Price;
+            }
+
+            if (_bidLimits.Any() && !_bidLimits.Max.IsEmpty)
+            {
+                bestBid = _bidLimits.Max.Price;
+            }
+
+            return new OrderbookSpread((long)bestBid, (long)bestAsk);
         }
 
         public void RemoveOrder(CancelOrder cancelOrder)
