@@ -59,7 +59,11 @@ namespace TradingEngineServer.Orderbook
 
         public void ChangeOrder(ModifyOrder modifyOrder)
         {
-            throw new NotImplementedException();
+            if (_orders.TryGetValue(modifyOrder.OrderId, out OrderBookEntry obe))
+            {
+                RemoveOrder(modifyOrder.ToCancelOrder());
+                AddOrder(modifyOrder.ToNewOrder(), obe.ParentLimit, modifyOrder.IsBuySide? _bidLimits: _askLimits, _orders);
+            }
         }
 
         public bool ContainsOrder(long orderId)
@@ -84,7 +88,48 @@ namespace TradingEngineServer.Orderbook
 
         public void RemoveOrder(CancelOrder cancelOrder)
         {
-            throw new NotImplementedException();
+            if (_orders.TryGetValue(cancelOrder.OrderId, out var obe))
+            {
+                RemoveOrder(cancelOrder.OrderId, obe, _orders);
+            }
+        }
+
+        private static void RemoveOrder(long orderId, OrderBookEntry obe, Dictionary<long, OrderBookEntry> internalBook)
+        {
+            // dealing the position of orderbook entry within the linked list
+            if (obe.Previous != null && obe.Next != null)
+            {
+                obe.Next.Previous = obe.Previous;
+                obe.Previous.Next = obe.Next;   
+            }
+            else if (obe.Previous != null)
+            {
+                obe.Previous.Next = null;
+            }
+            else if (obe.Next != null)
+            {
+                obe.Next.Previous = null;
+            }
+
+            // deal with orderbook entry on limit-level
+            if (obe.ParentLimit.Head == obe && obe.ParentLimit.Tail == obe)
+            {
+                // one order on this level
+                obe.ParentLimit.Head = null;
+                obe.ParentLimit.Tail = null;
+            }
+            else if (obe.ParentLimit.Head == obe)
+            {
+                // more than one order, but obe is the first order
+                obe.ParentLimit.Head = obe.Next;
+            }
+            else if (obe.ParentLimit.Tail == obe)
+            {
+                // more than one order, but obe is the last order on level
+                obe.ParentLimit.Tail = obe.Previous;
+            }
+
+            internalBook.Remove(orderId);
         }
     }
 }
