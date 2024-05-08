@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradingEngineServer.Orderbook")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2021081b0fb45f523b1af6844f6602debb4d5ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f62a53f037985d3972103693f43611fe7efc9673")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradingEngineServer.Orderbook")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradingEngineServer.Orderbook")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,2 +1,5 @@
-# TradeWave
-C++ trading engine
+# TradeWave - C# trading engine
+- text log
+- orderbook
+
+
