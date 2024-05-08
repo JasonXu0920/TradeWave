@@ -7,7 +7,11 @@ namespace TradingEngineServer.Orders
 {
     public class Limit
     {
-        public long Price { get; set; }
+        public Limit(long price)
+        {
+            Price = price;
+        }
+        public long Price { get; private set; }
         public OrderBookEntry Head { get; set; }
         public OrderBookEntry Tail { get; set; }
         public uint GetLevelOrderCount()

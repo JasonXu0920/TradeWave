@@ -24,7 +24,37 @@ namespace TradingEngineServer.Orderbook
 
         public void AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            var baseLimit = new Limit(order.Price);
+            AddOrder(order, baseLimit, order.IsBuySide? _bidLimits : _askLimits, _orders);
+        }
+
+        private static void AddOrder(Order order, Limit baseLimit, SortedSet<Limit> limitLevels, Dictionary<long, OrderBookEntry> internalOrderbook)
+        {
+            if (limitLevels.TryGetValue(baseLimit, out Limit limit))
+            {
+                OrderBookEntry orderBookEntry = new OrderBookEntry(order, baseLimit);
+                if (limit.Head == null)
+                {
+                    limit.Head = orderBookEntry;
+                    limit.Tail = orderBookEntry;
+                }
+                else 
+                {
+                    OrderBookEntry tailPointer = limit.Tail;
+                    tailPointer.Next = orderBookEntry;
+                    orderBookEntry.Previous = tailPointer;
+                    limit.Tail = orderBookEntry;
+                }
+                internalOrderbook.Add(order.OrderId, orderBookEntry);
+            }
+            else 
+            {
+                limitLevels.Add(baseLimit);
+                OrderBookEntry orderBookEntry = new OrderBookEntry(order, baseLimit);
+                baseLimit.Head = orderBookEntry;
+                baseLimit.Tail = orderBookEntry;
+                internalOrderbook.Add(order.OrderId, orderBookEntry);
+            }
         }
 
         public void ChangeOrder(ModifyOrder modifyOrder)
